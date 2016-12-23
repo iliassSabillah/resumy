@@ -1,0 +1,5 @@
+node_modules/
+.idea/
+.idea/modules.xml
+.idea/resumy.iml
+.idea/workspace.xml
