@@ -24,8 +24,8 @@ class Info extends React.Component{
 						</div>
 
 						<button type="button" className="add contact_link">
-							<span className="svg-icon"><svg className="add-icon" viewBox="0 0 14 14"/>
-							</span>Add Custom Link
+							<span className="svg-icon">Add Custom Link<svg className="add-icon" viewBox="0 0 14 14"/>
+							</span>
 						</button>
 
 						<div id="list" className="">

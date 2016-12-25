@@ -11,12 +11,15 @@ class HomePage extends React.Component{
 					<h2>Resume Page</h2>
 				</div>
 				<div className="col-md-4">
-					<Info/>
+					{this.props.children}
 				</div>
 			</div>
 		);
 	}
 }
 
+HomePage.propTypes = {
+	children : PropTypes.object.isRequired
+};
 
 export default HomePage;
