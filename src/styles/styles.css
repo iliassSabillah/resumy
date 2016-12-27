@@ -13,18 +13,23 @@
 	margin-bottom: 8px;
 	position: relative;
 	overflow: hidden;
+	border-style: none;
 }
-
-
+button {
+	background-color: #fff;
+	width: 250px;
+	height:50px;
+}
+input , textarea {
+	border-style:none;
+	width: 100%;
+}
 nav {
 	padding-top: 20px;
 }
 
-#search-button {
-	width: 100px;
-	height: 50px;
-}
-#search-button svg {
-	width: 25px;
-	height: 25px;
+.sectionNav {
+	text-align: center;
+	display: inline-block;
+	position: relative;
 }
