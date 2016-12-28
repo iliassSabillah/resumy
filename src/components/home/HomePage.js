@@ -1,6 +1,5 @@
 //This component handles the Home template
 import React, {PropTypes} from 'react';
-import Info from './../info/Info.js';
 
 
 class HomePage extends React.Component{

@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "c4q-ac26",
+    "password": null,
+    "database": "resumy-db",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "c4q-ac26",
+    "password": null,
+    "database": "resumy-db",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "resumy-db",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

@@ -31,5 +31,7 @@ nav {
 .sectionNav {
 	text-align: center;
 	display: inline-block;
-	position: relative;
+	/*position: relative;*/
+	margin-left:auto;
+	margin-right:auto;
 }
