@@ -3,8 +3,7 @@
 module.exports = (sequelize, DataTypes)=> {
 	const Project = sequelize.define("Project", {
 			project: DataTypes.STRING,
-			github: DataTypes.STRING,
-			site: DataTypes.STRING,
+			link: DataTypes.STRING,
 			description: DataTypes.STRING
 
 		}

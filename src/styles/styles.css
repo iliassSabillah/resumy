@@ -7,14 +7,14 @@
 	margin: 0 auto;
 
 }
-.input-box {
-	background: #fff;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.16);
-	margin-bottom: 8px;
-	position: relative;
-	overflow: hidden;
-	border-style: none;
-}
+/*.input-box {*/
+	/*background: #fff;*/
+	/*box-shadow: 0 1px 2px rgba(0,0,0,0.16);*/
+	/*margin-bottom: 8px;*/
+	/*position: relative;*/
+	/*overflow: hidden;*/
+	/*border-style: none;*/
+/*}*/
 button {
 	background-color: #fff;
 	width: 250px;
@@ -24,14 +24,16 @@ input , textarea {
 	border-style:none;
 	width: 100%;
 }
-nav {
-	padding-top: 20px;
-}
 
-.sectionNav {
-	text-align: center;
-	display: inline-block;
-	/*position: relative;*/
-	margin-left:auto;
-	margin-right:auto;
+/*.sectionNav {*/
+	/*text-align: center;*/
+	/*display: inline-block;*/
+	/*!*position: relative;*!*/
+	/*margin-left:auto;*/
+	/*margin-right:auto;*/
+/*}*/
+#resumeBody {
+	width: 650px;
+	height: 500px;
+	border: 1px dashed black;
 }

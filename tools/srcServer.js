@@ -3,13 +3,20 @@ import webpack from 'webpack';
 import path from 'path';
 import config from '../webpack.config.dev';
 import open from 'open';
-const models = require('../models');
+let models = require('../models');
+const bodyParser = require('body-parser');
+
 
 /* eslint-disable no-console */
 
 const port = 5000;
 const app = express();
 const compiler = webpack(config);
+
+//body-parser middleware adds .body property to req (if we make a POST AJAX request with some data attached, that data will be accessible as req.body)
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 
 app.use(require('webpack-dev-middleware')(compiler, {
@@ -19,16 +26,13 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get('*', (req, res)=> {
-	res.sendFile(path.join( __dirname, '../src/index.html'));
-});
-
-
 
 models.sequelize.sync().then(()=> {
 	/**
 	 * Listen on provided port, on all network interfaces.
 	 */
+
+
 	app.listen(port, (err)=> {
 		if (err) {
 			console.log(err);
@@ -36,4 +40,14 @@ models.sequelize.sync().then(()=> {
 			open(`http://localhost:${port}`);
 		}
 	});
+});
+
+app.use('/api/users', require('../routes/index').userRouter);
+// app.use('/api/experiences', require('../routes/index').experiencesRouter);
+// app.use('/api/education', require('../routes/index').educationRouter);
+// app.use('/api/skills', require('../routes/index').skillsRouter);
+// app.use('/api/projects', require('../routes/index').projectsRouter);
+
+app.get('/*', (req, res)=> {
+	res.sendFile(path.join( __dirname, '../src/index.html'));
 });

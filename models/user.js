@@ -6,12 +6,13 @@ module.exports = (sequelize, DataTypes)=> {
 		email: DataTypes.STRING,
 		phone: DataTypes.STRING,
 		address: DataTypes.STRING,
-		links: {
-			type: DataTypes.ARRAY(DataTypes.STRING)
-		}
+		password: DataTypes.STRING,
+		linkedIn: DataTypes.STRING,
+		github: DataTypes.STRING,
+		portfolio: DataTypes.STRING,
+		twitter: DataTypes.STRING
 
-	}
-	, {
+	}, {
 		classMethods: {
 			associate: (models)=> {
 				User.hasMany(models.Experience);

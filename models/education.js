@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes)=> {
 			startYear: DataTypes.INTEGER,
 			endYear: DataTypes.INTEGER,
 			current: DataTypes.BOOLEAN,
+			gpa: DataTypes.STRING,
 			achievements: DataTypes.STRING
 
 		}
