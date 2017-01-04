@@ -3,8 +3,9 @@ import webpack from 'webpack';
 import path from 'path';
 import config from '../webpack.config.dev';
 import open from 'open';
-let models = require('../models');
+const models = require('../models');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 
 /* eslint-disable no-console */
@@ -42,11 +43,18 @@ models.sequelize.sync().then(()=> {
 	});
 });
 
-app.use('/api/users', require('../routes/index').userRouter);
-// app.use('/api/experiences', require('../routes/index').experiencesRouter);
-// app.use('/api/education', require('../routes/index').educationRouter);
-// app.use('/api/skills', require('../routes/index').skillsRouter);
-// app.use('/api/projects', require('../routes/index').projectsRouter);
+app.use(session({
+	secret: 'resume',
+	resave: true,
+	saveUninitialized: true,
+	cookie: { secure: true }
+}))
+
+app.use('/api/users', require('../apiRoutes/index').userRouter);
+app.use('/api/experience', require('../apiRoutes/index').experienceRouter);
+// app.use('/api/education', require('../apiRoutes/index').educationRouter);
+// app.use('/api/skills', require('../apiRoutes/index').skillsRouter);
+// app.use('/api/projects', require('../apiRoutes/index').projectsRouter);
 
 app.get('/*', (req, res)=> {
 	res.sendFile(path.join( __dirname, '../src/index.html'));

@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {browserHistory} from 'react-router';
 import {bindActionCreators} from 'redux';
 import * as skillActions from '../../actions/skillActions';
-import CreateSkill from './CreateSkill';
+import Skill from './Skill';
 import SkillsList from './SkillsList';
 
 
@@ -13,6 +13,7 @@ class SkillContainer extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
+			userId:'',
 			skill: []
 		};
 		this.skillRow= this.skillRow.bind(this);
@@ -27,19 +28,19 @@ class SkillContainer extends React.Component{
 		this.props.actions.createSkill(skill);
 	}
 	skillRow(skill,index){return (<li key={skill+index}>{skill}</li>);}
-	// render(){
-	// 	return (
-	// 		<div>
-	// 			<CreateSkill  onClick={this.onSkillAdd}/>
-	// 		</div>
-	// 	);
-	// }
+	render(){
+		return (
+			<Skill handleChange={this.handleChange} skill={this.props.skill} handleSubmit={this.handleSubmit} skillRow={this.skillRow}/>
+		);
+	}
 }
 
 SkillContainer.propTypes = {
 	actions : PropTypes.object,
-	skill: PropTypes.array
-};
+	skill: React.PropTypes.oneOfType([
+		React.PropTypes.array,
+		React.PropTypes.object
+	]),};
 
 const mapStateToProps= (state,ownProps)=>({skill: state.skill});
 
@@ -47,5 +48,5 @@ const mapDispatchToProps=(dispatch)=>({
 	actions: bindActionCreators(skillActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateSkill);
+export default connect(mapStateToProps, mapDispatchToProps)(SkillContainer);
 

@@ -21,6 +21,7 @@ const getUser = (req,res)=>{
 const postUser = (req,res)=>{
 	models.User.create({
 		name: req.body.name,
+		role: req.body.role,
 		email: req.body.email,
 		phone: req.body.phone,
 		address: req.body.address,

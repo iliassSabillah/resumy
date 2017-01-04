@@ -6,13 +6,16 @@ import {bindActionCreators} from 'redux';
 import * as infoActions from '../../actions/infoActions';
 import $ from 'jquery';
 import Info from './Info';
-import ResumePage from '../resumePage/ResumePage';
+import onUsersEnter from '../../routes/route_data';
+
 
 class InfoContainer extends React.Component{
 	constructor(props, context){
 		super(props, context);
 		this.state = {
 			info: {
+				id: '',
+				role: '',
 				name: '',
 				email: '',
 				phone: '',
@@ -26,92 +29,56 @@ class InfoContainer extends React.Component{
 		};
 		this.addLink = this.addLink.bind(this);
 		this.infoRow= this.infoRow.bind(this);
-		this.handleInput= this.handleInput.bind(this);
-		// this.onNameAdd = this.onNameAdd.bind(this);
-		// this.onEmailAdd = this.onEmailAdd.bind(this);
-		// this.onPhoneAdd = this.onPhoneAdd.bind(this);
-		// this.onAddressAdd = this.onAddressAdd.bind(this);
-		// this.onLinkedInAdd = this.onLinkedInAdd.bind(this);
-		// this.onGithubAdd = this.onGithubAdd.bind(this);
-		// this.onPortfolioAdd = this.onPortfolioAdd.bind(this);
-		// this.onTwitterAdd = this.onTwitterAdd.bind(this);
-	}
-	// onNameAdd(e){
-	// 	const info = this.state.info;
-	// 	info.name = e.target.value;
-	// 	this.infoRow();
-	// 	this.props.actions.createInfo(info.name);	}
-	// onEmailAdd(e){
-	// 	const info = this.state.info;
-	// 	info.email = e.target.value;
-	// 	this.infoRow();
-	// 	this.props.actions.createInfo(info.email);
-	// }
-	// onPhoneAdd(e){
-	// 	const info = this.state.info;
-	// 	info.phone = e.target.value;
-	// 	this.infoRow();
-	// 	this.props.actions.createInfo(info.phone);	}
-	// onAddressAdd(e){
-	// 	const info = this.state.info;
-	// 	info.address = e.target.value;
-	// 	this.infoRow();
-	// 	this.props.actions.createInfo(info.address);
-	// }
-    //
-	// onLinkedInAdd(e){
-	// 	const info = this.state.info;
-	// 	info.linkedIn = e.target.value;
-	// 	this.infoRow();
-	// 	this.props.actions.createInfo(info.linkedIn);
-	// }
-    //
-	// onGithubAdd(e){
-	// 	const info = this.state.info;
-	// 	info.github = e.target.value;
-	// 	this.infoRow();
-	// 	this.props.actions.createInfo(info.github);
-	// }
-    //
-	// onPortfolioAdd(e){
-	// 	const info = this.state.info;
-	// 	info.portfolio = e.target.value;
-	// 	this.infoRow();
-	// 	this.props.actions.createInfo(info.portfolio);
-	// }
-    //
-	// onTwitterAdd(e){
-	// 	const info = this.state.info;
-	// 	info.twitter = e.target.value;
-	// 	this.infoRow();
-	// 	this.props.actions.createInfo(info.twitter);
-	// }
-	handleInput(e,inputField){
-		const info = this.state.info;
-		info[inputField] = e.target.value;
-		this.infoRow();
-		this.props.actions.createInfo(info);
+		this.handleChange= this.handleChange.bind(this);
+		this.handleSubmit= this.handleSubmit.bind(this);
+
+
 	}
 
+	// handleInput(e,inputField){
+	// 	// const info = this.state.info;
+	// 	info[inputField] = e.target.value;
+	// 	this.infoRow();
+	// 	this.props.actions.createInfo(info);
+	// }
+	handleSubmit(e) {
+		e.preventDefault();
+		let name = this.refs.name;
+		let email = this.refs.email;
+		let role = this.refs.role;
+		let phone = this.refs.phone;
+		let address = this.refs.address;
+		let linkedIn = this.refs.linkedIn;
+		let github = this.refs.github;
+		let portfolio = this.refs.portfolio;
+		let twitter = this.refs.twitter;
+		let info = {name, email, role, phone, address, linkedIn, github, portfolio, twitter};
+		this.props.actions.createInfo(info);
+
+	}
+	handleChange(e,inputField) {
+		const info = this.state.info;
+		info[inputField] = e.target.value;
+	}
 	addLink(){
 		$('.link').toggleClass('hidden');
 	}
 	infoRow(info,index){return (<li key={info+index}>{info}</li>);}
 	render(){
+		console.log('state inside info container:',this.props.info);
 		return (
-			<div>
-				<div className="col-md-4">
-					<Info handleInput={this.handleInput} info={this.state.info} infoRow={this.infoRow}/>
-				</div>
-				<ResumePage info={this.state.info}/>
-			</div>
+				<Info handleChange={this.handleChange} info={this.props.info} handleSubmit={this.handleSubmit} infoRow={this.infoRow}/>
 		);
 	}
 }
 
 InfoContainer.propTypes = {
 	actions : PropTypes.object.isRequired,
-	info: PropTypes.object.isRequired
+	info: React.PropTypes.oneOfType([
+		React.PropTypes.array,
+		React.PropTypes.object
+	]),
+	fetchUsers: PropTypes.func
 };
 
 const mapStateToProps= (state,ownProps)=>({info: state.info});

@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 const ExperienceList = (props)=> {
 		return (
 			<div className ="container-fluid">
-				<Link to="createExperience"><button className="btn-primary">Add New Experience</button></Link>
+				<Link to="experience"><button className="btn-primary">Add New Experience</button></Link>
 				<p>Experience List</p>
 
 			</div>

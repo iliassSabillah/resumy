@@ -1,9 +1,11 @@
+
+
 //This component handles the header navbar component
-import React from 'react';
+import React ,{PropTypes} from 'react';
 import {Link, IndexLink} from 'react-router';
 import $ from 'jquery';
 
-const Header = ()=> {
+const Header = (props)=> {
 	$(()=> {
 		$(".nav-pills").on( "tabsactivate", (event,ui)=> window.location.hash = ui.panel.id);
 	});
@@ -27,15 +29,25 @@ const Header = ()=> {
 							<li><Link to="about" activeClassName="active">About</Link></li>
 						</ul>
 						<ul className="nav navbar-nav navbar-right">
-							<li><a href="#">Sign Up</a></li>
-							<li><a href="#">Sign In</a></li>
+							<form className="form-inline">
+								<div className="form-group">
+									<input style={{marginTop: 10+ 'px'}} type="email" className="form-control" id="email" placeholder="Enter email"/>
+								</div>
+								<div className="form-group">
+									<input style={{marginTop: 10+ 'px'}} type="password" className="form-control" id="password" placeholder="Password"/>
+								</div>
+								<ul className="nav navbar-nav navbar-right">
+									<li><button className="btn btn-outline-primary" href="#">Sign Up</button></li>
+									<li><input className="btn btn-outline-primary" type="submit" value="Sign In"/></li>
+								</ul>
+							</form>
 						</ul>
 					</div>
 				</div>
 			</nav>
 			<div className="sectionNav">
 				<ul className="nav nav-pills center">
-					<li><IndexLink to="/">Home</IndexLink></li>
+					<li><IndexLink to="/">Info</IndexLink></li>
 					<li><Link to="experience">Experience</Link></li>
 					<li><Link to="education">Education</Link></li>
 					<li><Link to="projects">Projects</Link></li>
@@ -43,9 +55,11 @@ const Header = ()=> {
 				</ul>
 			</div>
 		</div>
-		);
+	);
 };
-
+Header.propTypes = {
+	submit: PropTypes.func
+};
 
 export default Header;
 

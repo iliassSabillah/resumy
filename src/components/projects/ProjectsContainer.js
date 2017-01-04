@@ -12,6 +12,7 @@ class ProjectContainer extends React.Component{
 		super(props);
 		this.state = {
 			project: {
+				userId: '',
 				project: '',
 				github: '',
 				website: '',

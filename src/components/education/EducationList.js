@@ -6,7 +6,7 @@ class EducationList extends React.Component{
 	render(){
 		return (
 			<div className ="container-fluid">
-				<Link to="createEducation"><button className="btn-primary">Add New Education</button></Link>
+				<Link to="education"><button className="btn-primary">Add New Education</button></Link>
 				<p>Education List</p>
 			</div>
 		);
