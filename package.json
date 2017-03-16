@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "resume app",
   "scripts": {
-    "start": "./node_modules/.bin/babel-node tools/srcServer.js"
+    "start": "node tools/srcServer.js"
   },
   "dependencies": {
     "axios": "^0.15.3",

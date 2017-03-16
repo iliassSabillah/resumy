@@ -1,11 +1,11 @@
-import express from 'express';
-import webpack from 'webpack';
-import path from 'path';
-import config from '../webpack.config.dev';
-import open from 'open';
-const models = require('../models');
-const bodyParser = require('body-parser');
-const session = require('express-session');
+var express = require('express');
+var webpack = require('webpack');
+var path = require('path');
+var config = require('../webpack.config.dev');
+var open = require('open');
+var models = require('../models');
+var bodyParser = require('body-parser');
+var session = require('express-session');
 
 
 /* eslint-disable no-console */
