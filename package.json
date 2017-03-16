@@ -4,7 +4,8 @@
   "description": "resume app",
   "main":"./tools/srcServer.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel-node tools/srcServer.js"
+    "start1": "./node_modules/.bin/babel-node tools/srcServer.js",
+	"start": "node tools/server.js"
   },
   "dependencies": {
     "axios": "^0.15.3",
