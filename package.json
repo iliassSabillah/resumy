@@ -2,14 +2,9 @@
   "name": "resumy",
   "version": "1.0.0",
   "description": "resume app",
+  "main":"./tools/srcServer.js",
   "scripts": {
-    "prestart": "babel-node tools/startMessage.js",
-    "start": "npm-run-all --parallel test:watch open:src lint:watch",
-    "open:src": "babel-node tools/srcServer.js",
-    "lint": "node_modules/.bin/esw webpack.config.* src tools",
-    "lint:watch": "npm run lint -- --watch",
-    "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "start": "./node_modules/.bin/babel-node tools/srcServer.js"
   },
   "dependencies": {
     "axios": "^0.15.3",
@@ -82,6 +77,10 @@
     "webpack": "1.14.0",
     "webpack-dev-middleware": "1.9.0",
     "webpack-hot-middleware": "2.14.0"
+  },
+  "engines": {
+	"node": "7.3.0",
+	"npm": "3.10.10"
   },
   "repository": {
     "type": "git",

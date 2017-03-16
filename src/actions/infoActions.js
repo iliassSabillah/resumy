@@ -9,7 +9,8 @@ export function createInfo(info){
 
 
 export function fetchUser() {
-	const request = axios.get('/api/users');
+	const id = 1;
+	const request = axios.get(`/api/users/${id}`);
 
 	return (dispatch)=>{
 		request.then(({data})=>{

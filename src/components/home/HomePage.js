@@ -21,10 +21,7 @@ class HomePage extends React.Component {
 
 HomePage.propTypes = {
 	children : PropTypes.object.isRequired,
-	state: React.PropTypes.oneOfType([
-		React.PropTypes.array,
-		React.PropTypes.object
-	])
+	state: React.PropTypes.object,
 };
 
 const mapStateToProps= (state,ownProps)=>({state: state});

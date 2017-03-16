@@ -41,6 +41,10 @@ class InfoContainer extends React.Component{
 	// 	this.infoRow();
 	// 	this.props.actions.createInfo(info);
 	// }
+	loadInfo(){
+		this.props.actions.onUsersEnter();
+
+	}
 	handleSubmit(e) {
 		e.preventDefault();
 		let name = this.refs.name;
@@ -67,17 +71,14 @@ class InfoContainer extends React.Component{
 	render(){
 		console.log('state inside info container:',this.props.info);
 		return (
-				<Info handleChange={this.handleChange} info={this.props.info} handleSubmit={this.handleSubmit} infoRow={this.infoRow}/>
+				<Info handleChange={this.handleChange} info={this.props.info} handleSubmit={this.handleSubmit} loadInfo={this.loadInfo}/>
 		);
 	}
 }
 
 InfoContainer.propTypes = {
 	actions : PropTypes.object.isRequired,
-	info: React.PropTypes.oneOfType([
-		React.PropTypes.array,
-		React.PropTypes.object
-	]),
+	info: React.PropTypes.object.isRequired,
 	fetchUsers: PropTypes.func
 };
 

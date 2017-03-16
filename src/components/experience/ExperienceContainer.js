@@ -65,7 +65,6 @@ class ExperienceContainer extends React.Component{
 	experienceRow(experience,index){return (<li key={experience+index}>{experience}</li>);}
 
 	render(){
-		debugger;
 		return (
 			<div>
 				<Experience handleChange={this.handleChange} experience={this.props.experience} handleSubmit={this.handleSubmit} experienceRow={this.experienceRow}/>
@@ -78,10 +77,7 @@ ExperienceContainer.propTypes = {
 	actions : PropTypes.object.isRequired,
 	handleChange : PropTypes.func,
 	experienceRow: PropTypes.func,
-	experience: React.PropTypes.oneOfType([
-		React.PropTypes.array,
-		React.PropTypes.object
-	]),
+	experience: React.PropTypes.object,
 	handleSubmit: PropTypes.func
 };
 

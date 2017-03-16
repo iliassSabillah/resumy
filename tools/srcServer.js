@@ -10,7 +10,7 @@ const session = require('express-session');
 
 /* eslint-disable no-console */
 
-const port = 5000;
+const port = process.env.PORT || 3000;
 const app = express();
 const compiler = webpack(config);
 
@@ -38,17 +38,17 @@ models.sequelize.sync().then(()=> {
 		if (err) {
 			console.log(err);
 		} else {
-			open(`http://localhost:${port}`);
+			console.log(`http://localhost:${port}`);
 		}
 	});
 });
 
-app.use(session({
-	secret: 'resume',
-	resave: true,
-	saveUninitialized: true,
-	cookie: { secure: true }
-}))
+// app.use(session({
+// 	secret: 'resume',
+// 	resave: true,
+// 	saveUninitialized: true,
+// 	cookie: { secure: true }
+// }))
 
 app.use('/api/users', require('../apiRoutes/index').userRouter);
 app.use('/api/experience', require('../apiRoutes/index').experienceRouter);

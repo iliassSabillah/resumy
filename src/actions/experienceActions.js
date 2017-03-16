@@ -3,7 +3,6 @@
 import * as types from './actionTypes';
 import axios from 'axios';
 
-debugger;
 export function fetchExperience() {
 	const request = axios.get('/api/experience');
 

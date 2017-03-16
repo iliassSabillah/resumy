@@ -2,7 +2,7 @@
 import React  from 'react';
 import {Link} from 'react-router';
 
-const ExperienceList = (props)=> {
+const ExperienceList = ()=> {
 		return (
 			<div className ="container-fluid">
 				<Link to="experience"><button className="btn-primary">Add New Experience</button></Link>

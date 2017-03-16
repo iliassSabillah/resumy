@@ -7,25 +7,25 @@ import {bindActionCreators} from 'redux';
 import * as educationActions from '../../actions/educationActions';
 import Education from './Education';
 
-class EducationContainer extends React.Component{
-	constructor(props){
+class EducationContainer extends React.Component {
+	constructor(props) {
 		super(props);
 		this.state = {
 			education: {
-				userId:'',
+				userId: '',
 				school: '',
 				startYear: '',
 				endYear: '',
 				current: false,
-				gpa:'',
+				gpa: '',
 				achievements: ''
 			}
 		};
-		this.educationRow= this.educationRow.bind(this);
-		this.handleChange= this.handleChange.bind(this);
-		this.handleSubmit= this.handleSubmit.bind(this);
+		this.educationRow = this.educationRow.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
 
-}
 	// 	browserHistory.push('/experience');
 
 	// onDescriptionAdd(e) {
@@ -34,10 +34,11 @@ class EducationContainer extends React.Component{
 	// 	this.experienceRow();
 	// 	this.props.actions.createExperience(experience.description);
 	// }
-	handleChange(e,inputField) {
+	handleChange(e, inputField) {
 		const education = this.state.education;
 		education[inputField] = e.target.value;
 	}
+
 	handleSubmit(e) {
 		e.preventDefault();
 		let school = this.refs.school;
@@ -49,27 +50,29 @@ class EducationContainer extends React.Component{
 		this.props.actions.createEducation(education);
 
 	}
-	educationRow(education,index){return (<li key={education+index}>{education}</li>);}
-	render(){
+
+	educationRow(education, index) {
+		return (<li key={education + index}>{education}</li>);
+	}
+
+	render() {
 		return (
-			<Education handleChange={this.handleChange} education={this.props.education} handleSubmit={this.handleSubmit} educationRow={this.educationRow}/>		);
+			<Education handleChange={this.handleChange} education={this.props.education}
+					   handleSubmit={this.handleSubmit} educationRow={this.educationRow}/>        );
 	}
 }
 
 EducationContainer.propTypes = {
-	actions : PropTypes.object,
+	actions: PropTypes.object,
 	educationRow: PropTypes.func,
-	handleChange : PropTypes.func,
-	education: React.PropTypes.oneOfType([
-		React.PropTypes.array,
-		React.PropTypes.object
-	]),
+	handleChange: PropTypes.func,
+	education: PropTypes.object,
 	handleSubmit: PropTypes.func
 };
 
-const mapStateToProps= (state,ownProps)=>({education: state.education});
+const mapStateToProps = (state, ownProps) => ({education: state.education});
 
-const mapDispatchToProps=(dispatch)=>({
+const mapDispatchToProps = (dispatch) => ({
 	actions: bindActionCreators(educationActions, dispatch)
 });
 

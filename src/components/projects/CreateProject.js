@@ -1,7 +1,7 @@
 import React,{PropTypes} from 'react';
 
 
-const CreateProject = ({project, actions})=> (
+const Project = ({project, actions})=> (
 		<div id="project" className="project-form">
 		<h2>Add New Project</h2>
 		{console.log('project action:',actions)}
@@ -29,12 +29,12 @@ const CreateProject = ({project, actions})=> (
 
 
 
-
-CreateProject.propTypes = {
-	project: PropTypes.array,
+Project.propTypes = {
+	project: PropTypes.object,
 	actions: PropTypes.object,
 	onProjectAdd: PropTypes.func,
-	onStartYearAdd: PropTypes.func,
+	onStartYearAdd: PropTypes.func
 };
 
-export default CreateProject;
+
+export default Project;

@@ -3,3 +3,8 @@ node_modules/
 .idea/modules.xml
 .idea/resumy.iml
 .idea/workspace.xml
+.EXPONENT
+.DS_Store
+.exponent/
+coverage/
+migrations/

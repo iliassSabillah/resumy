@@ -14,12 +14,11 @@ import Skill from '../components/skills/Skill';
 import SkillContainer from '../components/skills/SkillContainer';
 import {onUsersEnter, onExperienceEnter, onEducationEnter} from './route_data';
 
-debugger;
 
 export default (
 	<Route path="/" component={App}>
 		<Route component ={HomePage}>
-			<IndexRoute  component ={InfoContainer} onEnter={onUsersEnter}/>
+			<IndexRoute  component ={InfoContainer} />
 			<Route path="experience" component={ExperienceContainer} onEnter={onExperienceEnter} />
 			<Route path="education" component={EducationContainer}/>
 			<Route path="createSkill" component={Skill}/>
@@ -31,3 +30,4 @@ export default (
 	</Route>
 );
 
+//onEnter={onUsersEnter}

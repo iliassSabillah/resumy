@@ -4,8 +4,6 @@ import * as types from '../actions/actionTypes';
 
 const INITIAL_STATE = {};
 
-debugger;
-
 export default function experienceReducer(state= INITIAL_STATE, action){
 	switch(action.type){
 		case types.FETCH_EXPERIENCE:

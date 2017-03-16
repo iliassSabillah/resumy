@@ -21,7 +21,6 @@ const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 
 
-debugger;
 
 render (
 	<Provider store={store}>
@@ -30,11 +29,10 @@ render (
 	document.getElementById('root')
 );
 
-debugger;
+//
+// store.dispatch(fetchUser());
+//
 
-store.dispatch(fetchUser());
-
-debugger;
-store.dispatch(fetchExperience());
+// store.dispatch(fetchExperience());
 // store.dispatch(fetchEducation());
 

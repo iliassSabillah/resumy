@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import {browserHistory} from 'react-router';
 import {bindActionCreators} from 'redux';
 import * as projectActions from '../../actions/projectActions';
-import CreateProject from './CreateProject';
+import Project from './CreateProject';
 
 class ProjectContainer extends React.Component{
 	constructor(props){
@@ -56,24 +56,7 @@ class ProjectContainer extends React.Component{
 	projectRow(project,index){return (<li key={project+index}>{project}</li>);}
 	render(){
 		return (
-			<CreateProject project={this.state.project}/>
-			// 		<div id="project" className="project-form">
-			// 			<h2>Project</h2>
-			// 			{/*<ul style={{listStyle: 'none'}}>{Object.values(this.state.project).map(this.projectRow)}</ul>*/}
-			//
-			// 			{/*<div>*/}
-			// 				{/*<form>*/}
-			// 					{/*<div className="input-box">*/}
-			// 						{/*<label className="identifier show">Position</label>*/}
-			// 						{/*<input id="project" name="project" placeholder="Position" onBlur={this.onPositionAdd} defaultValue = {this.state.project.project} type="text"/>*/}
-			// 					{/*</div>*/}
-			// 					{/*<div className="input-box">*/}
-			// 						{/*<label className="identifier show">Company</label>*/}
-			// 						{/*<input id="company" name="company" placeholder="Company" onBlur={this.onGithubAdd} defaultValue = {this.state.project.company} type="text"/>*/}
-			// 					{/*</div>*/}
-			// 				{/*</form>*/}
-			// 			{/*</div>*/}
-			// 		</div>
+			<Project project={this.state.project}/>
 		);
 	}
 }
@@ -89,4 +72,4 @@ const mapDispatchToProps=(dispatch)=>({
 	actions: bindActionCreators(projectActions, dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateProject);
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectContainer);

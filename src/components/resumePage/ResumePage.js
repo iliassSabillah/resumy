@@ -14,7 +14,7 @@ const ResumePage =	(props)=>{
 									<div className="yui-gc">
 										<div className="yui-u first">
 											<h1>{ props.info.name !== null ? props.info.name : ''}</h1>
-											<h2>{props.info.role||''}</h2>
+											<h2>{props.info.role}</h2>
 										</div>
 
 										<div className="yui-u">
