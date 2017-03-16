@@ -2,12 +2,13 @@
   "name": "resumy",
   "version": "1.0.0",
   "description": "resume app",
-  "main":"./tools/srcServer.js",
+  "main": "./tools/srcServer.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel-node tools/srcServer.js"
+    "start": "node_modules/.bin/babel-node tools/srcServer.js"
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "babel": "^6.23.0",
     "babel-polyfill": "6.20.0",
     "body-parser": "^1.15.2",
     "bootstrap": "3.3.7",
@@ -79,8 +80,8 @@
     "webpack-hot-middleware": "2.14.0"
   },
   "engines": {
-	"node": "7.3.0",
-	"npm": "3.10.10"
+    "node": "7.3.0",
+    "npm": "3.10.10"
   },
   "repository": {
     "type": "git",
