@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "resume app",
   "scripts": {
+	"build":"node tools/build.js",
     "start": "node tools/srcServer.js"
   },
   "dependencies": {
