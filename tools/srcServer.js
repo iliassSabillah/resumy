@@ -10,7 +10,7 @@ const session = require('express-session');
 
 /* eslint-disable no-console */
 
-// const port = ;
+const port = process.env.PORT || 3000;
 const app = express();
 const compiler = webpack(config);
 
@@ -34,16 +34,15 @@ models.sequelize.sync().then(()=> {
 	 */
 
 
-	app.listen(process.env.PORT || 3000);
+	app.listen(port, (err)=> {
+		if (err) {
+			console.log(err);
+		} else {
+			console.log(`http://localhost:${port}`);
+		}
+	});
 });
 
-// , (err)=> {
-// 	if (err) {
-// 		console.log(err);
-// 	} else {
-// 		console.log(`http://localhost:${port}`);
-// 	}
-// }
 // app.use(session({
 // 	secret: 'resume',
 // 	resave: true,
